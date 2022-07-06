@@ -1908,21 +1908,23 @@ b{
 }
 .publication>ul{
     list-style: none;
-    margin-left: 10rem;
+    margin-left: 6rem;
     line-height: 4rem;
 }
 .publication>ul>li{
-    font-size: 1.5rem;
-    font-style: italic;
+    color: var(--color-gray-7);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-family: var(--font-1);
 }
 a{
-    text-decoration: underline;
-    font: size 1.5rem;
+    font: size 1.8rem;
+    font-family: var(--font-1);
 }
 img{
-    border: 2px solid lightslategray;
+    /*border: 2px solid lightslategray;
     border-radius: 10px;
-    box-shadow: 2px 2px 8px #fdf8f8;
+    box-shadow: 2px 2px 8px #fdf8f8; */
 }
 ul li {
     padding-left: .4rem;
