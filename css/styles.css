@@ -666,6 +666,10 @@ li {
     display: block;
 }
 
+#news li {
+    font-size: 8px;
+}
+
 /* ------------------------------------------------------------------- 
  * ## links
  * ------------------------------------------------------------------- */
@@ -3577,6 +3581,15 @@ input[type="button"].btn--primary:focus {
 }
 
 /* ------------------------------------------------------------------- 
+ * ## hero about
+ * ------------------------------------------------------------------- */
+.s-hero__content-about h3 a:hover, 
+.s-hero__content-about h3 a:focus {
+    color: var(--color-2-light) !important;
+}
+
+
+/* ------------------------------------------------------------------- 
  * ## hero social
  * ------------------------------------------------------------------- */
 .s-hero__content-social {
@@ -3873,6 +3886,7 @@ input[type="button"].btn--primary:focus {
     fill: white;
 }
 
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * about
@@ -3915,6 +3929,18 @@ input[type="button"].btn--primary:focus {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .s-about__content-bottom .btn--more {
+        margin-top: var(--vspace-0_5);
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .s-about__content-bottom .btn--more svg {
+        display: none;
+    }
+}
 
 /* ===================================================================
  * # resume 
@@ -4753,4 +4779,8 @@ input[type="button"].btn--primary:focus {
     .s-footer__social li {
         margin-right: 1.4rem;
     }
+}
+
+.collapsible-content {
+    display: none;
 }
