@@ -666,10 +666,6 @@ li {
     display: block;
 }
 
-#news li {
-    font-size: 8px;
-}
-
 /* ------------------------------------------------------------------- 
  * ## links
  * ------------------------------------------------------------------- */
@@ -1896,14 +1892,25 @@ ol, ul {
     color: whitesmoke;
     padding: 3rem;
     display: flex;
-    /* justify-content: center; */
+    flex-wrap: wrap; /* Allows items to wrap in smaller screens */
+    gap: 1rem; /* Adds space between flex items */
 }
 b{
     color: whitesmoke;
 }
+.publication{
+    color: whitesmoke;
+    padding: 3rem;
+    display: flex;
+    flex-direction: row; /* Align children horizontally */
+    align-items: flex-start; /* Align children to the start of the flex container */
+    justify-content: flex-start; /* Align children to the start of the main axis */
+    flex-wrap: wrap; /* Allow items to wrap as needed on small screens */
+    margin-bottom: 1rem; /* Adjust the bottom margin to manage space below each publication */
+}
+    /* justify-content: center; */
 .publications>h2{
     color: whitesmoke;
-    padding: 4rem;
 }
 
 .publications>h1{
@@ -1912,15 +1919,29 @@ b{
 }
 .publication>ul{
     list-style: none;
-    margin-left: 6rem;
     line-height: 4rem;
+    flex: 1; /* Allow text block to fill the remaining space */
+    min-width: 0; /* Prevent flex item from overflowing its container */
+    margin: 0; /* Removes margin if any */
 }
 .publication>ul>li{
     color: var(--color-gray-7);
     font-size: 1.8rem;
     font-style: normal;
     font-family: var(--font-1);
+    margin: 0; /* Removes margin if any */
 }
+.publication img {
+    width: 50%; /* Makes image width responsive to the container size */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0;
+    -webkit-transition: all, .5s;
+    transition: all, .5s;
+    flex: 0 0 auto; /* Do not grow, do not shrink, base size on content */
+    margin-bottom: 0; /* Removes bottom margin if any */
+}
+
 a{
     font: size 1.8rem;
     font-family: var(--font-1);
@@ -3821,7 +3842,6 @@ input[type="button"].btn--primary:focus {
     }
 }
 
-
 /* ===================================================================
  * # about
  *
@@ -3829,8 +3849,8 @@ input[type="button"].btn--primary:focus {
 .s-about {
     --color-border: var(--color-gray-16);
     background-color: var(--color-gray-17);
-    padding-top: calc(6 * var(--space));
-    padding-bottom: var(--vspace-4);
+    padding-top: calc(4 * var(--space));
+    padding-bottom: var(--vspace-2);
     color: rgba(255, 255, 255, 0.4);
 }
 
@@ -3842,7 +3862,6 @@ input[type="button"].btn--primary:focus {
 .s-about__pic {
     width: var(--vspace-5);
     height: var(--vspace-5);
-    border: 1.6rem solid rgba(255, 255, 255, 0.02);
     border-radius: 50%;
 }
 
@@ -3886,7 +3905,6 @@ input[type="button"].btn--primary:focus {
     fill: white;
 }
 
-
 /* ------------------------------------------------------------------- 
  * responsive:
  * about
@@ -3909,7 +3927,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 800px) {
     .s-about {
-        padding-top: var(--vspace-5);
+        padding-top: var(--vspace-2);
     }
     .s-about__pic {
         display: none;
@@ -3918,7 +3936,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 600px) {
     .s-about__content-bottom .btn--download {
-        margin-top: var(--vspace-0_5);
+        margin-top: var(--vspace-2_3);
         width: 100%;
     }
 }
@@ -3929,18 +3947,6 @@ input[type="button"].btn--primary:focus {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .s-about__content-bottom .btn--more {
-        margin-top: var(--vspace-0_5);
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .s-about__content-bottom .btn--more svg {
-        display: none;
-    }
-}
 
 /* ===================================================================
  * # resume 
@@ -3948,8 +3954,6 @@ input[type="button"].btn--primary:focus {
  * ------------------------------------------------------------------- */
 .s-resume {
     background-color: white;
-    padding-top: calc(6 * var(--space));
-    padding-bottom: var(--vspace-4);
 }
 
 .s-resume__section {
@@ -4012,7 +4016,7 @@ input[type="button"].btn--primary:focus {
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 800px) {
     .s-resume {
-        padding-top: var(--vspace-4);
+        padding-top: var(--vspace-1);
     }
     .s-resume__section .column:first-child {
         text-align: center;
@@ -4783,4 +4787,18 @@ input[type="button"].btn--primary:focus {
 
 .collapsible-content {
     display: none;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    border: none;
+    color: hsla(182, 82%, 38%, 1);
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.toggle-btn:focus {
+    outline: none;
 }
